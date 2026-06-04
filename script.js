@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //qtype buttons
-let qtypeSelectionState = "0";
+let questionSelectionState = "auxiliaryVerb";
+let answerSelectionState = "meaning";
 let qtypeButtons;
 document.addEventListener('DOMContentLoaded', () => {
   qtypeButtons = document.querySelectorAll('.qtype-button');
@@ -61,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // 選択状態をリセット
       qtypeButtons.forEach((btn) => btn.classList.remove("active"));
       button.classList.add("active");
-      qtypeSelectionState = button.dataset.qtype;
+      questionSelectionState = button.dataset.question;
+      answerSelectionState = button.dataset.answer;
     });
   });
 });
@@ -93,7 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
     startButton.textContent = "処理中...";
     const params = new URLSearchParams();
     params.append("count", countSelectionState);
-    params.append("qtype", qtypeSelectionState);
+    params.append("question", questionSelectionState);
+    parms.append("answer", answerSelectionState);
     if (typeSelectionState === "card") {
       //console.log(`card.html?${params.toString()}`);
       window.location.href = `card.html?${params.toString()}`;
