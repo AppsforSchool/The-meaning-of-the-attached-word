@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startButton.textContent = "処理中...";
     const params = new URLSearchParams();
     params.append("count", countSelectionState);
-    params.appednd("qtype", qtypeSelectionState);
+    params.append("qtype", qtypeSelectionState);
     params.append("question", questionSelectionState);
     params.append("answer", answerSelectionState);
     if (typeSelectionState === "card") {
